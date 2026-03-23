@@ -22,13 +22,16 @@ public class Main {
             e.printStackTrace();
         }
 
-            JFrame window = new JFrame(properties.getProperty("HELLO_WORLD"));
-        window.setSize(200, 200);
+        int width = Integer.parseInt(properties.getProperty("WIDTH"));
+
+
+        JFrame window = new JFrame(properties.getProperty("HELLO_WORLD"));
+        window.setSize(Integer.parseInt(properties.getProperty("WIDTH")), Integer.parseInt(properties.getProperty("HEIGHT")));
         window.setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
 
         JLabel label = new JLabel(properties.getProperty("HELLO_WORLD"), SwingConstants.CENTER);
-        Color yellow = Color.yellow;
-        label.setForeground(Color.yellow);
+        String hex = properties.getProperty("FOREGROUND_COLOR");
+        label.setForeground(Color.decode(hex));
 
         window.add(label);
         window.setVisible(true);
