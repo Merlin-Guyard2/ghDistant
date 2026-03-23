@@ -24,14 +24,16 @@ public class Main {
 
         int width = Integer.parseInt(properties.getProperty("WIDTH"));
 
+        Color background = Color.decode(properties.getProperty("BACKGROUND_COLOR"));
+        Color foreground = Color.decode(properties.getProperty("FOREGROUND_COLOR"));
 
         JFrame window = new JFrame(properties.getProperty("HELLO_WORLD"));
+        window.getContentPane().setBackground(background);
         window.setSize(Integer.parseInt(properties.getProperty("WIDTH")), Integer.parseInt(properties.getProperty("HEIGHT")));
         window.setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
 
         JLabel label = new JLabel(properties.getProperty("HELLO_WORLD"), SwingConstants.CENTER);
-        String hex = properties.getProperty("FOREGROUND_COLOR");
-        label.setForeground(Color.decode(hex));
+        label.setForeground(foreground);
 
         window.add(label);
         window.setVisible(true);
