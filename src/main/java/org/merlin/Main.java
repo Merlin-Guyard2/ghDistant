@@ -32,7 +32,7 @@ public class Main {
         window.setSize(Integer.parseInt(properties.getProperty("WIDTH")), Integer.parseInt(properties.getProperty("HEIGHT")));
         window.setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
 
-        JLabel label = new JLabel(properties.getProperty("HELLO_WORLD"), SwingConstants.CENTER);
+        JLabel label = new JLabel(properties.getProperty("HELLO_WORLD") + " " + LocalDate.now(), SwingConstants.CENTER);
         label.setForeground(foreground);
 
         window.add(label);
